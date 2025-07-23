@@ -23,6 +23,7 @@ class UpdatetracerRequest extends FormRequest
     {
         return [
             'alumni_id' => 'required|exists:alumni,id',
+            'status' => 'required|in:bekerja,wiraswasta,melanjutkan,tidak bekerja',
             'mulai_kerja' => 'required|date',
             'nama_instansi' => 'required|string|max:255',
             'jabatan' => 'required|string|max:255',
@@ -43,6 +44,8 @@ class UpdatetracerRequest extends FormRequest
         return [
             'alumni_id.required' => 'Alumni harus dipilih.',
             'alumni_id.exists' => 'Alumni yang dipilih tidak valid.',
+            'status.required' => 'Status harus dipilih.',
+            'status.in' => 'Status tidak valid.',
             'mulai_kerja.required' => 'Tanggal mulai kerja harus diisi.',
             'mulai_kerja.date' => 'Format tanggal mulai kerja tidak valid.',
             'nama_instansi.required' => 'Nama instansi harus diisi.',

@@ -14,15 +14,8 @@ return new class extends Migration
         Schema::create('tracers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('alumni_id');
-            $table->date('mulai_kerja')->nullable();
-            $table->string('nama_instansi');
-            $table->string('jabatan');
-            $table->string('kesesuaian_kerja');
-            $table->string('kelurahan');
-            $table->string('kab_kota');
-            $table->string('provinsi');
-            $table->string('kode_pos');
-            $table->date('tgl_update')->nullable();
+            $table->string('status');
+            $table->string('tanggal_mulai');
             $table->timestamps();
 
             $table->foreign('alumni_id')->references('id')->on('alumnis')->onDelete('cascade');

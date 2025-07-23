@@ -4,7 +4,7 @@
     <div class="container mx-auto px-4 py-8">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-3xl font-bold text-gray-900">Data Tracer Study</h1>
-            <div>
+            <div class="mt-4">
                 <a href="{{ route('admin.tracer.export.all') }}" class="btn btn-success me-2">
                     <i class="fas fa-file-excel"></i> Export Data Tracer
                 </a>
@@ -24,16 +24,17 @@
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Alumni
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status
                         </th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Instansi
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal
+                            Mulai
                         </th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jabatan
+                        {{-- <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jabatan
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mulai
                             Kerja</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Kesesuaian</th>
+                            Kesesuaian</th> --}}
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
                     </tr>
                 </thead>
@@ -44,11 +45,9 @@
                                 <div class="text-sm font-medium text-gray-900">{{ $tracer->alumni->nama ?? 'N/A' }}</div>
                                 <div class="text-sm text-gray-500">{{ $tracer->alumni->nim ?? 'N/A' }}</div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $tracer->nama_instansi }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $tracer->jabatan }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ ucwords($tracer->status) }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                {{ $tracer->mulai_kerja->format('d/m/Y') }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $tracer->kesesuaian_kerja }}
+                                {{ $tracer->tanggal_mulai->format('d/m/Y') }}</td>
                             </td>
                             <td>
                                 <div class="d-flex align-items-center gap-2">

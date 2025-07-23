@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <h1>Tambah Data Tracer</h1>
-        <form action="{{ route('user.tracer.store') }}" method="POST">
+        <h1 class="mt-3">Tambah Data Tracer</h1>
+        <form action="{{ route('user.tracer.store') }}" method="POST" class="mt-3">
             @csrf
             @include('user.tracer.form')
             <button type="submit" class="btn btn-primary">Simpan</button>

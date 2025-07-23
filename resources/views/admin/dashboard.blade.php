@@ -32,7 +32,8 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="col-md-3">
+
+            <div class="col-md-3">
                 <div class="card text-white bg-info mb-3">
                     <div class="card-body">
                         <h5 class="card-title">Kusioner</h5>
@@ -40,7 +41,8 @@
                         <a href="{{ route('admin.kusioner.index') }}" class="text-white">Lihat Detail</a>
                     </div>
                 </div>
-            </div> --}}
+            </div>
+
             <div class="col-md-3">
                 <div class="card text-white bg-secondary mb-3">
                     <div class="card-body">

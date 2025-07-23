@@ -1,9 +1,24 @@
 <div class="mb-3">
-    <label for="mulai_kerja" class="form-label">Mulai Kerja</label>
-    <input type="date" name="mulai_kerja" class="form-control"
-        value="{{ old('mulai_kerja', $tracer->mulai_kerja ?? '') }}" required>
+    <label for="status" class="form-label">Status</label>
+    <select name="status" class="form-control" required>
+        <option value="">Pilih Status</option>
+        <option value="bekerja" {{ old('status', $tracer->status ?? '') == 'bekerja' ? 'selected' : '' }}>Bekerja
+        </option>
+        <option value="wiraswasta" {{ old('status', $tracer->status ?? '') == 'wiraswasta' ? 'selected' : '' }}>
+            Wiraswasta</option>
+        <option value="melanjutkan" {{ old('status', $tracer->status ?? '') == 'melanjutkan' ? 'selected' : '' }}>
+            Melanjutkan Pendidikan</option>
+        <option value="tidak bekerja" {{ old('status', $tracer->status ?? '') == 'tidak bekerja' ? 'selected' : '' }}>
+            Tidak Bekerja</option>
+    </select>
 </div>
+
 <div class="mb-3">
+    <label for="tanggal_mulai" class="form-label">Tanggal Mulai</label>
+    <input type="date" name="tanggal_mulai" class="form-control"
+        value="{{ old('tanggal_mulai', $tracer->tanggal_mulai ?? '') }}" required>
+</div>
+{{-- <div class="mb-3">
     <label for="nama_instansi" class="form-label">Nama Instansi</label>
     <input type="text" name="nama_instansi" class="form-control"
         value="{{ old('nama_instansi', $tracer->nama_instansi ?? '') }}" required>
@@ -54,4 +69,4 @@
     <label for="tgl_update" class="form-label">Tanggal Update</label>
     <input type="date" name="tgl_update" class="form-control"
         value="{{ old('tgl_update', $tracer->tgl_update ?? '') }}" required>
-</div>
+</div> --}}

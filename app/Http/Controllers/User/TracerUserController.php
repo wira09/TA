@@ -47,15 +47,8 @@ class TracerUserController extends Controller
         }
 
         $validated = $request->validate([
-            'mulai_kerja' => 'required|date',
-            'nama_instansi' => 'required|string|max:255',
-            'jabatan' => 'required|string|max:255',
-            'kesesuaian_kerja' => 'required|string|max:255',
-            'kelurahan' => 'required|string|max:255',
-            'kab_kota' => 'required|string|max:255',
-            'provinsi' => 'required|string|max:255',
-            'kode_pos' => 'required|string|max:10',
-            'tgl_update' => 'required|date',
+            'status' => 'required|in:bekerja,wiraswasta,melanjutkan,tidak bekerja',
+            'tanggal_mulai' => 'required|date',
         ]);
 
         $validated['alumni_id'] = $alumniId;
@@ -84,15 +77,8 @@ class TracerUserController extends Controller
         $this->authorize('update', $tracer);
 
         $validated = $request->validate([
-            'mulai_kerja' => 'required|date',
-            'nama_instansi' => 'required|string|max:255',
-            'jabatan' => 'required|string|max:255',
-            'kesesuaian_kerja' => 'required|string|max:255',
-            'kelurahan' => 'required|string|max:255',
-            'kab_kota' => 'required|string|max:255',
-            'provinsi' => 'required|string|max:255',
-            'kode_pos' => 'required|string|max:10',
-            'tgl_update' => 'required|date',
+            'status' => 'required|in:bekerja,wiraswasta,melanjutkan,tidak bekerja',
+            'tanggal_mulai' => 'required|date',
         ]);
 
         $tracer->update($validated);

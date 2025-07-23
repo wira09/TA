@@ -36,6 +36,7 @@ class TracerController extends Controller
     public function store(StoretracerRequest $request)
     {
         $validated = $request->validated();
+        // Pastikan status ada di validasi request
         tracer::create($validated);
 
         return redirect()->route('admin.tracer_index')
@@ -66,6 +67,7 @@ class TracerController extends Controller
     public function update(UpdatetracerRequest $request, tracer $tracer)
     {
         $validated = $request->validated();
+        // Pastikan status ada di validasi request
         $tracer->update($validated);
 
         return redirect()->route('admin.tracer_index')
@@ -79,7 +81,7 @@ class TracerController extends Controller
     {
         $tracer->delete();
 
-        return redirect()->route('admin.tracer_index')
+        return redirect()->route('admin.tracer.index')
             ->with('success', 'Data tracer berhasil dihapus.');
     }
 

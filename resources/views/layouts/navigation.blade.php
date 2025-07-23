@@ -27,15 +27,15 @@
                             <x-nav-link :href="route('admin.loker.index')" :active="request()->routeIs('admin.loker.index')">
                                 {{ __('Kelola Loker') }}
                             </x-nav-link>
-                            {{-- <x-nav-link :href="route('admin.kusioner.index')" :active="request()->routeIs('admin.kusioner.index')">
+                            <x-nav-link :href="route('admin.kusioner.index')" :active="request()->routeIs('admin.kusioner.index')">
                                 {{ __('Kelola Kusioner') }}
-                            </x-nav-link> --}}
+                            </x-nav-link>
                             <x-nav-link :href="route('admin.tracer.index')" :active="request()->routeIs('admin.tracer.index')">
                                 {{ __('Kelola Tracer') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('user.tracer.index')" :active="request()->routeIs('user.tracer.*')">
+                            {{-- <x-nav-link :href="route('user.tracer.index')" :active="request()->routeIs('user.tracer.*')">
                                 {{ __('Tracer Alumni') }}
-                            </x-nav-link>
+                            </x-nav-link> --}}
                         @else
                             <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                                 {{ __('Dashboard') }}
@@ -49,12 +49,16 @@
                             <x-nav-link :href="route('user.lokers.index')" :active="request()->routeIs('user.lokers.*')">
                                 {{ __('Info Loker') }}
                             </x-nav-link>
-                            {{-- <x-nav-link :href="route('user.kusioner.index')" :active="request()->routeIs('user.kusioner.*')">
+                            <x-nav-link :href="route('user.kusioner.index')" :active="request()->routeIs('user.kusioner.*')">
                                 {{ __('Kusioner') }}
+                            </x-nav-link>
+                            {{-- <x-nav-link :href="route('admin.tracer.index')" :active="request()->routeIs('admin.tracer.index.*')">
+                                {{ __('Kelola Tracer') }}
                             </x-nav-link> --}}
                             <x-nav-link :href="route('user.tracer.index')" :active="request()->routeIs('user.tracer.*')">
                                 {{ __('Tracer Alumni') }}
                             </x-nav-link>
+
                         @endif
                     @endauth
                 </div>
@@ -127,9 +131,9 @@
                 <x-responsive-nav-link :href="route('admin.event.index')" :active="request()->routeIs('admin.event.index')">
                     {{ __('Kelola Event') }}
                 </x-responsive-nav-link>
-                {{-- <x-responsive-nav-link :href="route('admin.loker.index')" :active="request()->routeIs('admin.loker.index')">
+                <x-responsive-nav-link :href="route('admin.loker.index')" :active="request()->routeIs('admin.loker.index')">
                     {{ __('Kelola Loker') }}
-                </x-responsive-nav-link> --}}
+                </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('admin.kusioner.index')" :active="request()->routeIs('admin.kusioner.index')">
                     {{ __('Kelola Kusioner') }}
                 </x-responsive-nav-link>
@@ -149,9 +153,9 @@
                 <x-responsive-nav-link :href="route('user.lokers.index')" :active="request()->is('loker')">
                     {{ __('Info Loker') }}
                 </x-responsive-nav-link>
-                {{-- <x-responsive-nav-link :href="route('user.kusioner.index')" :active="request()->is('user.kusioner.*')">
+                <x-responsive-nav-link :href="route('user.kusioner.index')" :active="request()->is('user.kusioner.*')">
                     {{ __('Kusioner') }}
-                </x-responsive-nav-link> --}}
+                </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('user.tracer.index')" :active="request()->is('user.tracer.*')">
                     {{ __('Tracer Alumni') }}
                 </x-responsive-nav-link>
