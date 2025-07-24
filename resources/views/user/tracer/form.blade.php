@@ -85,14 +85,30 @@
         renderSoal(this.value);
     });
 
-    // Initialize form if editing
-    @if (isset($tracer))
-        const initialValues = {
-            @for ($i = 1; $i <= 8; $i++)
-                'soal_{{ $i }}': '{{ old("soal_$i", $tracer->alumni->{$tracer->status}->{"soal_$i"} ?? '') }}',
-            @endfor
-        };
+    // Initialize form for edit or create
+    @php
+        $currentStatus = old('status', $tracer->status ?? '');
+        $initialValues = [];
+        if (isset($tracer)) {
+            $soalCount = isset($statusQuestions[$currentStatus]) ? count($statusQuestions[$currentStatus]) : 0;
+            for ($i = 1; $i <= $soalCount; $i++) {
+                $soalValue = old("soal_$i", $tracer->alumni->{$currentStatus}->{"soal_$i"} ?? '');
+                $initialValues["soal_$i"] = $soalValue;
+            }
+        } else {
+            $soalCount = isset($statusQuestions[$currentStatus]) ? count($statusQuestions[$currentStatus]) : 0;
+            for ($i = 1; $i <= $soalCount; $i++) {
+                $soalValue = old("soal_$i", '');
+                $initialValues["soal_$i"] = $soalValue;
+            }
+        }
+    @endphp
 
-        renderSoal('{{ old('status', $tracer->status ?? '') }}', initialValues);
-    @endif
+    window.addEventListener('DOMContentLoaded', function() {
+        const status = @json($currentStatus);
+        const initialValues = @json($initialValues);
+        if (status && statusQuestions[status]) {
+            renderSoal(status, initialValues);
+        }
+    });
 </script>

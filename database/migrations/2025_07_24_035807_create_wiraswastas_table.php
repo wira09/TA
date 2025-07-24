@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('wiraswastas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('alumni_id');
-            $table->string('soal_1')->nullable();
-            $table->string('soal_2')->nullable();
-            $table->string('soal_3')->nullable();
-            $table->string('soal_4')->nullable();
-            $table->string('soal_5')->nullable();
+            $table->string('soal_1');
+            $table->string('soal_2');
+            $table->string('soal_3');
+            $table->string('soal_4');
+            $table->string('soal_5');
             $table->timestamps();
 
             $table->foreign('alumni_id')->references('id')->on('alumnis')->onDelete('cascade');

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('tidak_bekerjas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('alumni_id');
-            $table->string('soal_1')->nullable();
-            $table->string('soal_2')->nullable();
-            $table->string('soal_3')->nullable();
+            $table->string('soal_1');
+            $table->string('soal_2');
+            $table->string('soal_3');
             $table->timestamps();
 
             $table->foreign('alumni_id')->references('id')->on('alumnis')->onDelete('cascade');

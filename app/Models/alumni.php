@@ -10,6 +10,8 @@ class Alumni extends Model
     /** @use HasFactory<\Database\Factories\AlumniFactory> */
     use HasFactory;
 
+    protected $table = 'alumnis';
+
     protected $fillable = [
         'nama',
         'nim',

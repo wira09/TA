@@ -9,28 +9,62 @@
             </tr>
             <tr>
                 <th>Tanggal Mulai</th>
-                <td> {{ $tracer->tanggal_mulai->format('d/m/Y') }}</td>
+                <td>{{ $tracer->tanggal_mulai->format('d/m/Y') }}</td>
             </tr>
-            <tr>
-                <th>Soal 1</th>
-                <td>{{ $tracer->alumni->bekerja->soal_1 }}</td>
-            </tr>
-            <tr>
-                <th>Soal 2</th>
-                <td>{{ $tracer->alumni->bekerja->soal_2 }}</td>
-            </tr>
-            <tr>
-                <th>Soal 3</th>
-                <td>{{ $tracer->alumni->bekerja->soal_3 }}</td>
-            </tr>
-            <tr>
-                <th>Soal 4</th>
-                <td>{{ $tracer->alumni->bekerja->soal_4 }}</td>
-            </tr>
-            <tr>
-                <th>Soal 5</th>
-                <td>{{ $tracer->alumni->bekerja->soal_5 }}</td>
-            </tr>
+            @php
+                $status = $tracer->status;
+                $soalLabels = [
+                    'bekerja' => [
+                        'Berapa lama anda mendapatkan pekerjaan',
+                        'Berapa rata-rata pendapatan per bulan anda (Take Home Pay)',
+                        'Lokasi Tempat Anda Bekerja (Provinsi)',
+                        'Lokasi Tempat Anda Bekerja (Kota / Kabupaten)',
+                        'Jenis Perusahaan tempat anda bekerja',
+                        'Nama Perusahaan tempat anda bekerja',
+                        'Kategori perusahaan tempat anda bekerja',
+                        'Informasi yang anda dapatkan untuk mencari pekerjaan',
+                    ],
+                    'wiraswasta' => [
+                        'Apakah jabatan/posisi anda ketika Berwirausaha',
+                        'Nama Usaha anda',
+                        'Pendapatan per bulan anda',
+                        'Bidang Usaha',
+                        'Berapa lama anda memulai usaha',
+                    ],
+                    'melanjutkan' => [
+                        'Jenjang melanjutkan',
+                        'Nama Perguruan Tinggi',
+                        'Nama Program Studi',
+                        'Tanggal Bulan Tahun Masuk',
+                        'Sumber Biaya',
+                    ],
+                    'tidak bekerja' => [
+                        'Berapa perusahaan/instansi/institusi yang sudah anda lamar (lewat surat atau e-mail) sebelum anda memeroleh pekerjaan pertama?',
+                        'Berapa banyak perusahaan/instansi/institusi yang merespons lamaran anda?',
+                        'Berapa banyak perusahaan/instansi/institusi yang mengundang anda untuk wawancara?',
+                    ],
+                ];
+                // Ambil data jawaban sesuai status
+                $jawaban = null;
+                if ($status == 'bekerja') {
+                    $jawaban = $tracer->alumni->bekerja ?? null;
+                } elseif ($status == 'wiraswasta') {
+                    $jawaban = $tracer->alumni->wiraswasta ?? null;
+                } elseif ($status == 'melanjutkan') {
+                    $jawaban = $tracer->alumni->melanjutkanPendidikan ?? null;
+                } elseif ($status == 'tidak bekerja') {
+                    $jawaban = $tracer->alumni->tidakBekerja ?? null;
+                }
+            @endphp
+
+            @if ($jawaban)
+                @foreach ($soalLabels[$status] as $i => $label)
+                    <tr>
+                        <th>{{ $label }}</th>
+                        <td>{{ $jawaban->{'soal_' . ($i + 1)} }}</td>
+                    </tr>
+                @endforeach
+            @endif
         </table>
         <a href="{{ route('user.tracer.index') }}" class="btn btn-secondary">Kembali</a>
     </div>
