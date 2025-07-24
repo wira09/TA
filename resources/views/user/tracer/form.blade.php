@@ -1,6 +1,6 @@
 <div class="mb-3">
     <label for="status" class="form-label">Status</label>
-    <select name="status" class="form-control" required>
+    <select name="status" id="status" class="form-control" required>
         <option value="">Pilih Status</option>
         <option value="bekerja" {{ old('status', $tracer->status ?? '') == 'bekerja' ? 'selected' : '' }}>Bekerja
         </option>
@@ -15,58 +15,84 @@
 
 <div class="mb-3">
     <label for="tanggal_mulai" class="form-label">Tanggal Mulai</label>
-    <input type="date" name="tanggal_mulai" class="form-control"
+    <input type="date" name="tanggal_mulai" id="tanggal_mulai" class="form-control"
         value="{{ old('tanggal_mulai', $tracer->tanggal_mulai ?? '') }}" required>
 </div>
-{{-- <div class="mb-3">
-    <label for="nama_instansi" class="form-label">Nama Instansi</label>
-    <input type="text" name="nama_instansi" class="form-control"
-        value="{{ old('nama_instansi', $tracer->nama_instansi ?? '') }}" required>
-</div>
-<div class="mb-3">
-    <label for="jabatan" class="form-label">Jabatan</label>
-    <input type="text" name="jabatan" class="form-control" value="{{ old('jabatan', $tracer->jabatan ?? '') }}"
-        required>
-</div>
-<div class="mb-3">
-    <label for="kesesuaian_kerja" class="form-label">Kesesuaian Kerja</label>
-    <select name="kesesuaian_kerja" class="form-control" required>
-        <option value="">Pilih Kesesuaian</option>
-        <option value="Sangat Sesuai"
-            {{ old('kesesuaian_kerja', $tracer->kesesuaian_kerja ?? '') == 'Sangat Sesuai' ? 'selected' : '' }}>Sangat
-            Sesuai</option>
-        <option value="Sesuai"
-            {{ old('kesesuaian_kerja', $tracer->kesesuaian_kerja ?? '') == 'Sesuai' ? 'selected' : '' }}>Sesuai</option>
-        <option value="Kurang Sesuai"
-            {{ old('kesesuaian_kerja', $tracer->kesesuaian_kerja ?? '') == 'Kurang Sesuai' ? 'selected' : '' }}>Kurang
-            Sesuai</option>
-        <option value="Tidak Sesuai"
-            {{ old('kesesuaian_kerja', $tracer->kesesuaian_kerja ?? '') == 'Tidak Sesuai' ? 'selected' : '' }}>Tidak
-            Sesuai</option>
-    </select>
-</div>
-<div class="mb-3">
-    <label for="kelurahan" class="form-label">Kelurahan</label>
-    <input type="text" name="kelurahan" class="form-control" value="{{ old('kelurahan', $tracer->kelurahan ?? '') }}"
-        required>
-</div>
-<div class="mb-3">
-    <label for="kab_kota" class="form-label">Kab/Kota</label>
-    <input type="text" name="kab_kota" class="form-control" value="{{ old('kab_kota', $tracer->kab_kota ?? '') }}"
-        required>
-</div>
-<div class="mb-3">
-    <label for="provinsi" class="form-label">Provinsi</label>
-    <input type="text" name="provinsi" class="form-control" value="{{ old('provinsi', $tracer->provinsi ?? '') }}"
-        required>
-</div>
-<div class="mb-3">
-    <label for="kode_pos" class="form-label">Kode Pos</label>
-    <input type="text" name="kode_pos" class="form-control" value="{{ old('kode_pos', $tracer->kode_pos ?? '') }}"
-        required>
-</div>
-<div class="mb-3">
-    <label for="tgl_update" class="form-label">Tanggal Update</label>
-    <input type="date" name="tgl_update" class="form-control"
-        value="{{ old('tgl_update', $tracer->tgl_update ?? '') }}" required>
-</div> --}}
+
+<div id="soal-form" class="space-y-4"></div>
+
+<script>
+    const statusQuestions = {
+        'bekerja': [
+            'Berapa lama anda mendapatkan pekerjaan',
+            'Berapa rata-rata pendapatan per bulan anda (Take Home Pay)',
+            'Lokasi Tempat Anda Bekerja (Provinsi)',
+            'Lokasi Tempat Anda Bekerja (Kota / Kabupaten)',
+            'Jenis Perusahaan tempat anda bekerja',
+            'Nama Perusahaan tempat anda bekerja',
+            'Kategori perusahaan tempat anda bekerja',
+            'Informasi yang anda dapatkan untuk mencari pekerjaan'
+        ],
+        'wiraswasta': [
+            'Apakah jabatan/posisi anda ketika Berwirausaha',
+            'Nama Usaha anda',
+            'Pendapatan per bulan anda',
+            'Bidang Usaha',
+            'Berapa lama anda memulai usaha'
+        ],
+        'melanjutkan': [
+            'Jenjang melanjutkan',
+            'Nama Perguruan Tinggi',
+            'Nama Program Studi',
+            'Tanggal Bulan Tahun Masuk',
+            'Sumber Biaya'
+        ],
+        'tidak bekerja': [
+            'Berapa perusahaan/instansi/institusi yang sudah anda lamar (lewat surat atau e-mail) sebelum anda memeroleh pekerjaan pertama?',
+            'Berapa banyak perusahaan/instansi/institusi yang merespons lamaran anda?',
+            'Berapa banyak perusahaan/instansi/institusi yang mengundang anda untuk wawancara?'
+        ]
+    };
+
+    function renderSoal(status, values = {}) {
+        const container = document.getElementById('soal-form');
+        container.innerHTML = '';
+
+        if (!status || !statusQuestions[status]) return;
+
+        statusQuestions[status].forEach((question, index) => {
+            const questionNumber = index + 1;
+            const fieldName = `soal_${questionNumber}`;
+            const fieldValue = values[fieldName] || '';
+
+            const questionElement = document.createElement('div');
+            questionElement.className = 'mb-4';
+
+            questionElement.innerHTML = `
+                <label class="block text-sm font-medium text-gray-700 mb-2">${question}</label>
+                <input type="text"
+                       name="${fieldName}"
+                       class="form-control w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       value="${fieldValue.replace(/"/g, '&quot;')}"
+                       required>
+            `;
+
+            container.appendChild(questionElement);
+        });
+    }
+
+    document.getElementById('status').addEventListener('change', function() {
+        renderSoal(this.value);
+    });
+
+    // Initialize form if editing
+    @if (isset($tracer))
+        const initialValues = {
+            @for ($i = 1; $i <= 8; $i++)
+                'soal_{{ $i }}': '{{ old("soal_$i", $tracer->alumni->{$tracer->status}->{"soal_$i"} ?? '') }}',
+            @endfor
+        };
+
+        renderSoal('{{ old('status', $tracer->status ?? '') }}', initialValues);
+    @endif
+</script>

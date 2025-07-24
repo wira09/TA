@@ -21,7 +21,8 @@ class Alumni extends Model
         'password',
         'Foto',
         'jenis_kelamin',
-        'alamat'
+        'alamat',
+        'status_setelah_lulus'
     ];
 
     /**
@@ -30,5 +31,22 @@ class Alumni extends Model
     public function tracers()
     {
         return $this->hasMany(tracer::class);
+    }
+
+    public function bekerja()
+    {
+        return $this->hasOne(\App\Models\bekerja::class);
+    }
+    public function wiraswasta()
+    {
+        return $this->hasOne(\App\Models\wiraswasta::class);
+    }
+    public function melanjutkanPendidikan()
+    {
+        return $this->hasOne(\App\Models\melanjutkan_pendidikan::class);
+    }
+    public function tidakBekerja()
+    {
+        return $this->hasOne(\App\Models\tidak_bekerja::class);
     }
 }

@@ -41,9 +41,10 @@
                             <option value="bekerja" {{ old('status') == 'bekerja' ? 'selected' : '' }}>Bekerja</option>
                             <option value="wiraswasta" {{ old('status') == 'wiraswasta' ? 'selected' : '' }}>Wiraswasta
                             </option>
-                            <option value="melanjutkan" {{ old('status') == 'melanjutkan' ? 'selected' : '' }}>Melanjutkan
+                            <option value="melanjutkan_pendidikan"
+                                {{ old('status') == 'melanjutkan_pendidikan' ? 'selected' : '' }}>Melanjutkan Pendidikan
                             </option>
-                            <option value="tidak bekerja" {{ old('status') == 'tidak bekerja' ? 'selected' : '' }}>Tidak
+                            <option value="tidak_bekerja" {{ old('status') == 'tidak_bekerja' ? 'selected' : '' }}>Tidak
                                 Bekerja</option>
                         </select>
                         @error('status')
@@ -52,16 +53,34 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="tanggal_mulai" class="block text-sm font-medium text-gray-700 mb-2">Tanggal Mulai</label>
+                        <label for="tanggal_mulai" class="block text-sm font-medium text-gray-700 mb-2">Tanggal
+                            Mulai</label>
                         <input type="date" name="tanggal_mulai" id="tanggal_mulai"
                             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 @error('tanggal_mulai') border-red-500 @enderror"
                             value="{{ old('tanggal_mulai') }}" required>
                     </div>
 
+                    <div id="soal-form"></div>
+                    <script>
+                        function renderSoal(status) {
+                            let html = '';
+                            let soalCount = 0;
+                            if (status === 'bekerja') soalCount = 8;
+                            else if (status === 'wiraswasta' || status === 'melanjutkan_pendidikan') soalCount = 5;
+                            else if (status === 'tidak_bekerja') soalCount = 3;
+                            for (let i = 1; i <= soalCount; i++) {
+                                html +=
+                                    `<div class='mb-4'><label>Soal ${i}</label><input type='text' name='soal_${i}' class='form-control' required></div>`;
+                            }
+                            document.getElementById('soal-form').innerHTML = html;
+                        }
+                        document.getElementById('status').addEventListener('change', function() {
+                            renderSoal(this.value);
+                        });
+                    </script>
 
                     <div class="flex justify-end">
-                        <button type="submit"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                             Simpan Data
                         </button>
                     </div>

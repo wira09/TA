@@ -34,20 +34,47 @@
                 <div class="mb-3">
                     <label>Program Studi</label>
                     <select name="program_studi" class="form-control" required>
-                        <option value="DIII - Akutansi" {{ $alumni->program_studi == 'DIII - Akutansi' ? 'selected' : '' }}>DIII - Akutansi</option>
-                        <option value="DIII - Teknik Mesin" {{ $alumni->program_studi == 'DIII - Teknik Mesin' ? 'selected' : '' }}>DIII - Teknik Mesin</option>
-                        <option value="DIII - Teknik Komputer" {{ $alumni->program_studi == 'DIII - Teknik Komputer' ? 'selected' : '' }}>DIII - Teknik Komputer</option>
-                        <option value="DIII - Teknik Elerektronika" {{ $alumni->program_studi == 'DIII - Teknik Elerektronika' ? 'selected' : '' }}>DIII - Teknik Elerektronika</option>
-                        <option value="DIII - Mekanik Otomotif" {{ $alumni->program_studi == 'DIII - Mekanik Otomotif' ? 'selected' : '' }}>DIII - Mekanik Otomotif</option>
-                        <option value="DIII - Alat Berat" {{ $alumni->program_studi == 'DIII - Alat Berat' ? 'selected' : '' }}>DIII - Alat Berat</option>
-                        <option value="DIII - Teknik Kimia" {{ $alumni->program_studi == 'DIII - Teknik Kimia' ? 'selected' : '' }}>DIII - Teknik Kimia(industri)</option>
-                        <option value="DIII - Rekam Medik & Informasi Kesehatan" {{ $alumni->program_studi == 'DIII - Rekam Medik & Informasi Kesehatan' ? 'selected' : '' }}>DIII - Rekam Medik & Informasi Kesehatan</option>
-                        <option value="DIV - Teknik Informatika" {{ $alumni->program_studi == 'DIV - Teknik Informatika' ? 'selected' : '' }}>DIV - Teknik Informatika</option>
-                        <option value="DIV - Mekanik Industri Dan Desain" {{ $alumni->program_studi == 'DIV - Mekanik Industri Dan Desain' ? 'selected' : '' }}>DIV - Mekanik Industri Dan Desain</option>
-                        <option value="DIV - Mekatronika" {{ $alumni->program_studi == 'DIV - Mekatronika' ? 'selected' : '' }}>DIV - Mekatronika</option>
-                        <option value="DIV - Komputer Akutansi" {{ $alumni->program_studi == 'DIV - Komputer Akutansi' ? 'selected' : '' }}>DIV - Komputer Akutansi</option>
-                        <option value="DIV - Teknik Otomasi" {{ $alumni->program_studi == 'DIV - Teknik Otomasi' ? 'selected' : '' }}>DIV - Teknik Otomasi(industri)</option>
-                        <option value="DIV - Kontruksi Bangunan" {{ $alumni->program_studi == 'DIV - Kontruksi Bangunan' ? 'selected' : '' }}>DIV - Kontruksi Bangunan</option>
+                        <option value="DIII - Akutansi" {{ $alumni->program_studi == 'DIII - Akutansi' ? 'selected' : '' }}>
+                            DIII - Akutansi</option>
+                        <option value="DIII - Teknik Mesin"
+                            {{ $alumni->program_studi == 'DIII - Teknik Mesin' ? 'selected' : '' }}>DIII - Teknik Mesin
+                        </option>
+                        <option value="DIII - Teknik Komputer"
+                            {{ $alumni->program_studi == 'DIII - Teknik Komputer' ? 'selected' : '' }}>DIII - Teknik
+                            Komputer</option>
+                        <option value="DIII - Teknik Elerektronika"
+                            {{ $alumni->program_studi == 'DIII - Teknik Elerektronika' ? 'selected' : '' }}>DIII - Teknik
+                            Elerektronika</option>
+                        <option value="DIII - Mekanik Otomotif"
+                            {{ $alumni->program_studi == 'DIII - Mekanik Otomotif' ? 'selected' : '' }}>DIII - Mekanik
+                            Otomotif</option>
+                        <option value="DIII - Alat Berat"
+                            {{ $alumni->program_studi == 'DIII - Alat Berat' ? 'selected' : '' }}>DIII - Alat Berat
+                        </option>
+                        <option value="DIII - Teknik Kimia"
+                            {{ $alumni->program_studi == 'DIII - Teknik Kimia' ? 'selected' : '' }}>DIII - Teknik
+                            Kimia(industri)</option>
+                        <option value="DIII - Rekam Medik & Informasi Kesehatan"
+                            {{ $alumni->program_studi == 'DIII - Rekam Medik & Informasi Kesehatan' ? 'selected' : '' }}>
+                            DIII - Rekam Medik & Informasi Kesehatan</option>
+                        <option value="DIV - Teknik Informatika"
+                            {{ $alumni->program_studi == 'DIV - Teknik Informatika' ? 'selected' : '' }}>DIV - Teknik
+                            Informatika</option>
+                        <option value="DIV - Mekanik Industri Dan Desain"
+                            {{ $alumni->program_studi == 'DIV - Mekanik Industri Dan Desain' ? 'selected' : '' }}>DIV -
+                            Mekanik Industri Dan Desain</option>
+                        <option value="DIV - Mekatronika"
+                            {{ $alumni->program_studi == 'DIV - Mekatronika' ? 'selected' : '' }}>DIV - Mekatronika
+                        </option>
+                        <option value="DIV - Komputer Akutansi"
+                            {{ $alumni->program_studi == 'DIV - Komputer Akutansi' ? 'selected' : '' }}>DIV - Komputer
+                            Akutansi</option>
+                        <option value="DIV - Teknik Otomasi"
+                            {{ $alumni->program_studi == 'DIV - Teknik Otomasi' ? 'selected' : '' }}>DIV - Teknik
+                            Otomasi(industri)</option>
+                        <option value="DIV - Kontruksi Bangunan"
+                            {{ $alumni->program_studi == 'DIV - Kontruksi Bangunan' ? 'selected' : '' }}>DIV - Kontruksi
+                            Bangunan</option>
                     </select>
                 </div>
                 <div class="mb-3">

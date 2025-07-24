@@ -41,17 +41,16 @@
                             required>
                             <option value="">Pilih Status</option>
                             <option value="bekerja"
-                                {{ old('status', $tracer->status ?? '') == 'bekerja' ? 'selected' : '' }}>Bekerja
-                            </option>
+                                {{ old('status', $tracer->status ?? '') == 'bekerja' ? 'selected' : '' }}>Bekerja</option>
                             <option value="wiraswasta"
-                                {{ old('status', $tracer->status ?? '') == 'wiraswasta' ? 'selected' : '' }}>
-                                Wiraswasta</option>
-                            <option value="melanjutkan"
-                                {{ old('status', $tracer->status ?? '') == 'melanjutkan' ? 'selected' : '' }}>
+                                {{ old('status', $tracer->status ?? '') == 'wiraswasta' ? 'selected' : '' }}>Wiraswasta
+                            </option>
+                            <option value="melanjutkan_pendidikan"
+                                {{ old('status', $tracer->status ?? '') == 'melanjutkan_pendidikan' ? 'selected' : '' }}>
                                 Melanjutkan Pendidikan</option>
-                            <option value="tidak bekerja"
-                                {{ old('status', $tracer->status ?? '') == 'tidak bekerja' ? 'selected' : '' }}>
-                                Tidak Bekerja</option>
+                            <option value="tidak_bekerja"
+                                {{ old('status', $tracer->status ?? '') == 'tidak_bekerja' ? 'selected' : '' }}>Tidak
+                                Bekerja</option>
                         </select>
                     </div>
 
@@ -62,6 +61,35 @@
                             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 @error('tanggal_mulai') border-red-500 @enderror"
                             value="{{ old('tanggal_mulai', $tracer->tanggal_mulai->format('Y-m-d')) }}" required>
                     </div>
+
+                    <div id="soal-form"></div>
+                    <script>
+                        function renderSoal(status, values = {}) {
+                            let html = '';
+                            let soalCount = 0;
+                            if (status === 'bekerja') soalCount = 8;
+                            else if (status === 'wiraswasta' || status === 'melanjutkan_pendidikan') soalCount = 5;
+                            else if (status === 'tidak_bekerja') soalCount = 3;
+                            for (let i = 1; i <= soalCount; i++) {
+                                html +=
+                                    `<div class='mb-4'><label>Soal ${i}</label><input type='text' name='soal_${i}' class='form-control' value='${values['soal_' + i] || ''}' required></div>`;
+                            }
+                            document.getElementById('soal-form').innerHTML = html;
+                        }
+                        document.getElementById('status').addEventListener('change', function() {
+                            renderSoal(this.value);
+                        });
+                        // Prefill saat edit
+                        @if (isset($tracer))
+                            renderSoal(
+                                '{{ old('status', $tracer->status ?? '') }}', {
+                                    @for ($i = 1; $i <= 8; $i++)
+                                        'soal_{{ $i }}': '{{ old("soal_$i", $tracer->alumni->{$tracer->status}->{"soal_$i"} ?? '') }}',
+                                    @endfor
+                                }
+                            );
+                        @endif
+                    </script>
 
                     <div class="flex justify-end space-x-2">
                         <a href="{{ route('admin.tracer.index', $tracer) }}"

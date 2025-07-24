@@ -36,9 +36,8 @@ class TracerController extends Controller
     public function store(StoretracerRequest $request)
     {
         $validated = $request->validated();
-        // Pastikan status ada di validasi request
-        tracer::create($validated);
-
+        $tracer = tracer::create($validated);
+        $this->storeStatusData($request, $validated['alumni_id']);
         return redirect()->route('admin.tracer_index')
             ->with('success', 'Data tracer berhasil ditambahkan.');
     }
@@ -67,9 +66,8 @@ class TracerController extends Controller
     public function update(UpdatetracerRequest $request, tracer $tracer)
     {
         $validated = $request->validated();
-        // Pastikan status ada di validasi request
         $tracer->update($validated);
-
+        $this->storeStatusData($request, $validated['alumni_id'], true);
         return redirect()->route('admin.tracer_index')
             ->with('success', 'Data tracer berhasil diperbarui.');
     }
@@ -91,5 +89,31 @@ class TracerController extends Controller
     public function exportAll()
     {
         return Excel::download(new TracerExport, 'data_tracer_study_' . date('Y-m-d_H-i-s') . '.xlsx');
+    }
+
+    private function storeStatusData($request, $alumniId, $isUpdate = false)
+    {
+        $status = $request->input('status');
+        if ($status === 'bekerja') {
+            $data = $request->only(['soal_1', 'soal_2', 'soal_3', 'soal_4', 'soal_5', 'soal_6', 'soal_7', 'soal_8']);
+            $data['alumni_id'] = $alumniId;
+            if ($isUpdate) \App\Models\bekerja::updateOrCreate(['alumni_id' => $alumniId], $data);
+            else \App\Models\bekerja::create($data);
+        } elseif ($status === 'wiraswasta') {
+            $data = $request->only(['soal_1', 'soal_2', 'soal_3', 'soal_4', 'soal_5']);
+            $data['alumni_id'] = $alumniId;
+            if ($isUpdate) \App\Models\wiraswasta::updateOrCreate(['alumni_id' => $alumniId], $data);
+            else \App\Models\wiraswasta::create($data);
+        } elseif ($status === 'melanjutkan_pendidikan') {
+            $data = $request->only(['soal_1', 'soal_2', 'soal_3', 'soal_4', 'soal_5']);
+            $data['alumni_id'] = $alumniId;
+            if ($isUpdate) \App\Models\melanjutkan_pendidikan::updateOrCreate(['alumni_id' => $alumniId], $data);
+            else \App\Models\melanjutkan_pendidikan::create($data);
+        } elseif ($status === 'tidak_bekerja') {
+            $data = $request->only(['soal_1', 'soal_2', 'soal_3']);
+            $data['alumni_id'] = $alumniId;
+            if ($isUpdate) \App\Models\tidak_bekerja::updateOrCreate(['alumni_id' => $alumniId], $data);
+            else \App\Models\tidak_bekerja::create($data);
+        }
     }
 }

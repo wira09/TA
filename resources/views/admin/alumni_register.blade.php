@@ -39,7 +39,8 @@
                         <option value="DIII - Mekanik Otomotif">DIII - Mekanik Otomotif</option>
                         <option value="DIII - Alat Berat">DIII - Alat Berat</option>
                         <option value="DIII - Teknik Kimia">DIII - Teknik Kimia(industri)</option>
-                        <option value="DIII - Rekam Medik & Informasi Kesehatan">DIII - Rekam Medik & Informasi Kesehatan</option>
+                        <option value="DIII - Rekam Medik & Informasi Kesehatan">DIII - Rekam Medik & Informasi Kesehatan
+                        </option>
                         <option value="DIV - Teknik Informatika">DIV - Teknik Informatika</option>
                         <option value="DIV - Mekanik Industri Dan Desain">DIV - Mekanik Industri Dan Desain</option>
                         <option value="DIV - Mekatronika">DIV - Mekatronika</option>
