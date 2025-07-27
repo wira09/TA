@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <h1>Edit Data Tracer</h1>
+        <h1>Edit Data Tracer Study</h1>
         <form action="{{ route('user.tracer.update', $tracer->id) }}" method="POST">
             @csrf
             @method('PUT')

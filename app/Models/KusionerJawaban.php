@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KusionerJawaban extends Model
+class KuesionerJawaban extends Model
 {
     use HasFactory;
 
-    protected $table = 'kusioner_jawabans';
+    protected $table = 'kuesioner_jawabans';
 
     protected $fillable = [
         'user_id',
-        'kusioner_id',
+        'kuesioner_id',
         'jawaban'
     ];
 
@@ -22,8 +22,8 @@ class KusionerJawaban extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function kusioner()
+    public function kuesioner()
     {
-        return $this->belongsTo(Kusioner::class);
+        return $this->belongsTo(Kuesioner::class);
     }
 }

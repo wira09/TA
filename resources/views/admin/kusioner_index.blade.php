@@ -13,7 +13,7 @@
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
             Daftar Kusioner
-            <a href="{{ route('admin.kusioner.create') }}" class="btn btn-primary float-end">Tambah Kusioner</a>
+            <a href="{{ route('admin.kuesioner.create') }}" class="btn btn-primary float-end">Tambah Kusioner</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\kusioner;
-use App\Http\Requests\StorekusionerRequest;
-use App\Http\Requests\UpdatekusionerRequest;
+use App\Models\kuesioner;
+use App\Http\Requests\StorekuesionerRequest;
+use App\Http\Requests\UpdatekuesionerRequest;
 
-class KusionerController extends Controller
+class KuesionerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class KusionerController extends Controller
     public function index()
     {
         $data['kusioners'] = kusioner::latest()->paginate(10);
-        return view('admin.kusioner_index', $data);
+        return view('admin.kuesioner_index', $data);
     }
 
     /**
@@ -22,7 +22,7 @@ class KusionerController extends Controller
      */
     public function create()
     {
-        return view('admin.kusioner_create');
+        return view('admin.kuesioner_create');
     }
 
     /**
@@ -41,31 +41,31 @@ class KusionerController extends Controller
 
         kusioner::create($validated);
 
-        return redirect()->route('admin.kusioner.index')
-            ->with('success', 'kusioner berhasil ditambahkan!');
+        return redirect()->route('admin.kuesioner.index')
+            ->with('success', 'kuesioner berhasil ditambahkan!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(kusioner $kusioner)
+    public function show(kuesioner $kusioner)
     {
         $jawabans = $kusioner->jawabans()->with('user')->get();
-        return view('admin.kusioner_show', compact('kusioner', 'jawabans'));
+        return view('admin.kuesioner_show', compact('kuesioner', 'jawabans'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(kusioner $kusioner)
+    public function edit(kuesioner $kusioner)
     {
-        return view('admin.kusioner_edit', compact('kusioner'));
+        return view('admin.kuesioner_edit', compact('kuesioner'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(\Illuminate\Http\Request $request, kusioner $kusioner)
+    public function update(\Illuminate\Http\Request $request, kuesioner $kuesioner)
     {
         $validated = $request->validate([
             'soal' => 'required|string',
@@ -75,21 +75,21 @@ class KusionerController extends Controller
             'pilihan_d' => 'required|string',
         ]);
 
-        $kusioner->update($validated);
+        $kuesioner->update($validated);
 
-        return redirect()->route('admin.kusioner.index')
-            ->with('success', 'kusioner berhasil diperbarui!');
+        return redirect()->route('admin.kuesioner.index')
+            ->with('success', 'kuesioner berhasil diperbarui!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(kusioner $kusioner)
+    public function destroy(kuesioner $kuesioner)
     {
-        $kusioner->delete();
+        $kuesioner->delete();
 
-        return redirect()->route('admin.kusioner.index')
-            ->with('success', 'kusioner berhasil dihapus!');
+        return redirect()->route('admin.kuesioner.index')
+            ->with('success', 'kuesioner berhasil dihapus!');
     }
 
     

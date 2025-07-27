@@ -45,7 +45,7 @@
                                 <a class="dropdown-item" href="/loker">Info Loker</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="/kusioner">Kusioner</a>
+                                <a class="dropdown-item" href="/kusioner">Kuesioner</a>
                             </li>
                         </ul>
                     </li>

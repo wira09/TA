@@ -1,22 +1,22 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Edit Kusioner</h1>
+    <h1 class="mt-4">Edit Kuesioner</h1>
 
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-edit me-1"></i>
-            Form Edit Kusioner
+            Form Edit Kuesioner
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.kusioner.update', $kusioner) }}" method="POST">
+            <form action="{{ route('admin.kuesioner.update', $kusioner) }}" method="POST">
                 @csrf
                 @method('PUT')
 
                 <div class="mb-3">
                     <label for="soal" class="form-label">Soal :</label>
                     <input type="text" class="form-control @error('soal') is-invalid @enderror"
-                           id="soal" name="soal" value="{{ old('soal', $kusioner->soal) }}" required>
+                           id="soal" name="soal" value="{{ old('soal', $kuesioner->soal) }}" required>
                     @error('soal')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -58,6 +58,14 @@
                     @enderror
                 </div>
 
+                 <div class="mb-3">
+                    <label for="pilihan_e" class="form-label">Pilihan E</label>
+                    <input type="text" class="form-control @error('pilihan_e') is-invalid @enderror"
+                           id="pilihan_e" name="pilihan_e" value="{{ old('pilihan_e') }}" required>
+                    @error('pilihan_e')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
                 {{-- <div class="mb-3">
                     <label for="jawaban_benar" class="form-label">Jawaban Benar</label>
                     <input type="text" class="form-control @error('jawaban_benar') is-invalid @enderror"
@@ -68,7 +76,7 @@
                 </div> --}}
 
                 <div class="mb-3">
-                    <a href="{{ route('admin.kusioner.index') }}" class="btn btn-secondary">Kembali</a>
+                    <a href="{{ route('admin.kuesioner.index') }}" class="btn btn-secondary">Kembali</a>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>

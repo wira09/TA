@@ -47,10 +47,10 @@
             <x-input-label for="program_studi" :value="__('Program Studi')" />
             <select id="program_studi" name="program_studi" class="block mt-1 w-full" required>
                 <option value="">-- Pilih Program Studi --</option>
-                <option value="DIII - Akutansi" {{ old('program_studi') == 'DIII - DIII - Akutansi' ? 'selected' : '' }}>DIII - DIII - Akutansi</option>
+                <option value="DIII - Akuntansi" {{ old('program_studi') == 'DIII - Akuntansi' ? 'selected' : '' }}>DIII - Akuntansi</option>
                 <option value="DIII - Teknik Mesin" {{ old('program_studi') == 'DIII - Teknik Mesin' ? 'selected' : '' }}>DIII - Teknik Mesin</option>
                 <option value="DIII - Teknik Komputer" {{ old('program_studi') == 'DIII - Teknik Komputer' ? 'selected' : '' }}>DIII - Teknik Komputer</option>
-                <option value="DIII - Teknik Elerektronika" {{ old('program_studi') == 'DIII - Teknik Elerektronika' ? 'selected' : '' }}>DIII - Teknik Elerektronika</option>
+                <option value="DIII - Teknik Elektronika" {{ old('program_studi') == 'DIII - Teknik Elektronika' ? 'selected' : '' }}>DIII - Teknik Elektronika</option>
                 <option value="DIII - Mekanik Otomotif" {{ old('program_studi') == 'DIII - Mekanik Otomotif' ? 'selected' : '' }}>DIII - Mekanik Otomotif</option>
                 <option value="DIII - Alat Berat" {{ old('program_studi') == 'DIII - Alat Berat' ? 'selected' : '' }}>DIII - Alat Berat</option>
                 <option value="DIII - Teknik Kimia" {{ old('program_studi') == 'DIII - Teknik Kimia' ? 'selected' : '' }}>DIII - Teknik Kimia(industri)</option>
@@ -58,9 +58,9 @@
                 <option value="DIV - Teknik Informatika" {{ old('program_studi') == 'DIV - Teknik Informatika' ? 'selected' : '' }}>DIV - Teknik Informatika</option>
                 <option value="DIV - Mekanik Industri Dan Desain" {{ old('program_studi') == 'DIV - Mekanik Industri Dan Desain' ? 'selected' : '' }}>DIV - Mekanik Industri Dan Desain</option>
                 <option value="DIV - Mekatronika" {{ old('program_studi') == 'DIV - Mekatronika' ? 'selected' : '' }}>DIV - Mekatronika</option>
-                <option value="DIV - Komputer Akutansi" {{ old('program_studi') == 'DIV - Komputer Akutansi' ? 'selected' : '' }}>DIV - Komputer Akutansi</option>
+                <option value="DIV - Komputerisasi Akuntansi" {{ old('program_studi') == 'DIV - Komputerisasi Akuntansi' ? 'selected' : '' }}>DIV - Komputerisasi Akuntansi</option>
                 <option value="DIV - Teknik Otomasi" {{ old('program_studi') == 'DIV - Teknik Otomasi' ? 'selected' : '' }}>DIV - Teknik Otomasi</option>
-                <option value="DIV - Kontruksi Bangunan" {{ old('program_studi') == 'DIV - Kontruksi Bangunan' ? 'selected' : '' }}>DIV - Kontruksi Bangunan</option>
+                <option value="DIV - Konstruksi Bangunan" {{ old('program_studi') == 'DIV - Konstruksi Bangunan' ? 'selected' : '' }}>DIV - Konstruksi Bangunan</option>
             </select>
             <x-input-error :messages="$errors->get('program_studi')" class="mt-2" />
         </div>

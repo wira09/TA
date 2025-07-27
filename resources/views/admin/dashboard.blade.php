@@ -36,8 +36,8 @@
             <div class="col-md-3">
                 <div class="card text-white bg-info mb-3">
                     <div class="card-body">
-                        <h5 class="card-title">Kusioner</h5>
-                        <p class="card-text display-6">{{ \App\Models\kusioner::count() }}</p>
+                        <h5 class="card-title">Kuesioner</h5>
+                        <p class="card-text display-6">{{ \App\Models\kuesioner::count() }}</p>
                         <a href="{{ route('admin.kusioner.index') }}" class="text-white">Lihat Detail</a>
                     </div>
                 </div>

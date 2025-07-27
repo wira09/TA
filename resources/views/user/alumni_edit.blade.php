@@ -53,8 +53,8 @@
                             <div class="mb-3">
                                 <label>Program Studi</label>
                                 <select name="program_studi" class="form-control" required>
-                                    <option value="DIII - Akutansi"
-                                        {{ $alumni->program_studi == 'DIII - Akutansi' ? 'selected' : '' }}>DIII - Akutansi
+                                    <option value="DIII - Akuntansi"
+                                        {{ $alumni->program_studi == 'DIII - Akuntansi' ? 'selected' : '' }}>DIII - Akutansi
                                     </option>
                                     <option value="DIII - Teknik Mesin"
                                         {{ $alumni->program_studi == 'DIII - Teknik Mesin' ? 'selected' : '' }}>DIII -
@@ -62,9 +62,9 @@
                                     <option value="DIII - Teknik Komputer"
                                         {{ $alumni->program_studi == 'DIII - Teknik Komputer' ? 'selected' : '' }}>DIII -
                                         Teknik Komputer</option>
-                                    <option value="DIII - Teknik Elerektronika"
-                                        {{ $alumni->program_studi == 'DII - Teknik Elerektronika' ? 'selected' : '' }}>DII
-                                        - Teknik Elerektronika</option>
+                                    <option value="DIII - Teknik Elektronika"
+                                        {{ $alumni->program_studi == 'DII - Teknik Elektronika' ? 'selected' : '' }}>DII
+                                        - Teknik Elektronika</option>
                                     <option value="DIII - Mekanik Otomotif"
                                         {{ $alumni->program_studi == 'DIII - Mekanik Otomotif' ? 'selected' : '' }}>DIII -
                                         Mekanik Otomotif</option>
@@ -86,15 +86,15 @@
                                     <option value="DIV - Mekatronika"
                                         {{ $alumni->program_studi == 'DIV - Mekatronika' ? 'selected' : '' }}>DIV -
                                         Mekatronika</option>
-                                    <option value="DIV - Komputer Akutansi"
-                                        {{ $alumni->program_studi == 'DIV - Komputer Akutansi' ? 'selected' : '' }}>DIV -
-                                        Komputer Akutansi</option>
+                                    <option value="DIV - Komputerisasi Akuntansi"
+                                        {{ $alumni->program_studi == 'DIV - Komputerisasi Akuntansi' ? 'selected' : '' }}>DIV -
+                                        Komputerisasi Akuntansi</option>
                                     <option value="DIV - Teknik Otomasi"
                                         {{ $alumni->program_studi == 'DIV - Teknik Otomasi' ? 'selected' : '' }}>DIV -
                                         Teknik Otomasi(industri)</option>
-                                    <option value="DIV - Kontruksi Bangunan"
-                                        {{ $alumni->program_studi == 'DIV - Kontruksi Bangunan' ? 'selected' : '' }}>DIV -
-                                        Kontruksi Bangunan</option>
+                                    <option value="DIV - Konstruksi Bangunan"
+                                        {{ $alumni->program_studi == 'DIV - Konstruksi Bangunan' ? 'selected' : '' }}>DIV -
+                                        Konstruksi Bangunan</option>
                                 </select>
                             </div>
 

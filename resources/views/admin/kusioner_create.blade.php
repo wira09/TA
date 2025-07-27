@@ -1,15 +1,15 @@
 @extends('layouts.app')
 @section('content')
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Tambah Kusioner</h1>
+    <h1 class="mt-4">Tambah Kuesioner</h1>
 
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-plus me-1"></i>
-            Form Tambah Kusioner
+            Form Tambah Kuesioner
         </div>
         <div class="card-body">
-            <form action="{{ route('admin.kusioner.store') }}" method="POST">
+            <form action="{{ route('admin.kuesioner.store') }}" method="POST">
                 @csrf
 
                 <div class="mb-3">
@@ -53,6 +53,15 @@
                     <input type="text" class="form-control @error('pilihan_d') is-invalid @enderror"
                            id="pilihan_d" name="pilihan_d" value="{{ old('pilihan_d') }}" required>
                     @error('pilihan_d')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                 <div class="mb-3">
+                    <label for="pilihan_e" class="form-label">Pilihan e</label>
+                    <input type="text" class="form-control @error('pilihan_e') is-invalid @enderror"
+                           id="pilihan_e" name="pilihan_e" value="{{ old('pilihan_e') }}" required>
+                    @error('pilihan_e')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>

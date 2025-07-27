@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\alumni;
 use App\Models\event;
 use App\Models\loker;
-use App\Models\kusioner;
+use App\Models\kuesioner;
 use App\Models\tracer;
 use App\Models\User;
 

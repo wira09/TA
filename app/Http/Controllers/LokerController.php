@@ -12,7 +12,7 @@ class LokerController extends Controller
      */
     public function index()
     {
-        $data['lokers'] = \App\Models\loker::latest()->paginate(10);
+        $data['loker'] = \App\Models\lokers::latest()->paginate(10);
         return view('admin.loker_index', $data);
     }
 

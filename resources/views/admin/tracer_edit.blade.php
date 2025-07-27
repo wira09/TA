@@ -54,12 +54,8 @@
                         </select>
                     </div>
 
-                    <div class="mb-4">
-                        <label for="tanggal_mulai" class="block text-sm font-medium text-gray-700 mb-2">Tanggal
-                            Mulai</label>
-                        <input type="date" name="tanggal_mulai" id="tanggal_mulai"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 @error('tanggal_mulai') border-red-500 @enderror"
-                            value="{{ old('tanggal_mulai', $tracer->tanggal_mulai->format('Y-m-d')) }}" required>
+                    <
+                    
                     </div>
 
                     <div id="soal-form"></div>
@@ -82,7 +78,7 @@
                                 'Bidang Usaha',
                                 'Berapa lama anda memulai usaha'
                             ],
-                            'melanjutkan': [
+                            'melanjutkan Pendidikan': [
                                 'Jenjang melanjutkan',
                                 'Nama Perguruan Tinggi',
                                 'Nama Program Studi',

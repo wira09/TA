@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <h1 class="mt-3">Data Tracer Alumni</h1>
+        <h1 class="mt-3"> Tracer Study</h1>
         <a href="{{ route('user.tracer.create') }}" class="btn btn-primary mb-3 mt-3">Tambah Data</a>
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>

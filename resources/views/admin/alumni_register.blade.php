@@ -32,10 +32,10 @@
                 <div class="mb-3">
                     <label>Program Studi</label>
                     <select name="program_studi" class="form-control" required>
-                        <option value="DIII - Akutansi">DIII - Akutansi</option>
+                        <option value="DIII - Akuntansi">DIII - Akuntansi</option>
                         <option value="DIII - Teknik Mesin">DIII - Teknik Mesin</option>
                         <option value="DIII - Teknik Komputer">DIII - Teknik Komputer</option>
-                        <option value="DIII - Teknik Elerektronika">DIII - Teknik Elerektronika</option>
+                        <option value="DIII - Teknik Elektronika">DIII - Teknik Elektronika</option>
                         <option value="DIII - Mekanik Otomotif">DIII - Mekanik Otomotif</option>
                         <option value="DIII - Alat Berat">DIII - Alat Berat</option>
                         <option value="DIII - Teknik Kimia">DIII - Teknik Kimia(industri)</option>
@@ -44,9 +44,9 @@
                         <option value="DIV - Teknik Informatika">DIV - Teknik Informatika</option>
                         <option value="DIV - Mekanik Industri Dan Desain">DIV - Mekanik Industri Dan Desain</option>
                         <option value="DIV - Mekatronika">DIV - Mekatronika</option>
-                        <option value="DIV - Komputer Akutansi">DIV - Komputer Akutansi</option>
+                        <option value="DIV - Komputerisasi Akuntansi">DIV - Komputerisasi Akuntansi</option>
                         <option value="DIV - Teknik Otomasi">DIV - Teknik Otomasi(industri)</option>
-                        <option value="DIV - Kontruksi Bangunan">DIV - Kontruksi Bangunan</option>
+                        <option value="DIV - Konstruksi Bangunan">DIV - Konstruksi Bangunan</option>
                     </select>
                 </div>
                 <div class="mb-3">

@@ -6,11 +6,11 @@ use App\Http\Controllers\LokerController;
 use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\TracerController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\KusionerController;
+use App\Http\Controllers\KuesionerController;
 use App\Http\Controllers\UserEventController;
 use App\Http\Controllers\UserLokerController;
 use App\Http\Controllers\UserAlumniController;
-use App\Http\Controllers\UserKusionerController;
+use App\Http\Controllers\UserKuesionerController;
 use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
@@ -32,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('alumni/export/{id}', [AlumniController::class, 'exportSingle'])->name('admin.alumni.export.single');
         Route::resource('event', EventController::class, ['as' => 'admin']);
         Route::resource('loker', LokerController::class, ['as' => 'admin']);
-        Route::resource('kusioner', KusionerController::class, ['as' => 'admin']);
+        Route::resource('kuesioner', KuesionerController::class, ['as' => 'admin']);
         Route::resource('tracer', TracerController::class, ['as' => 'admin']);
         Route::get('tracer/export/all', [TracerController::class, 'exportAll'])->name('admin.tracer.export.all');
     });
@@ -44,7 +44,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('alumni', UserAlumniController::class, ['as' => 'user'])->only(['index', 'show', 'edit', 'update']);        // Alias for compatibility with old code
         Route::resource('events', UserEventController::class, ['as' => 'user'])->only(['index', 'show']);
         Route::resource('lokers', UserLokerController::class, ['as' => 'user'])->only(['index', 'show']);
-        Route::resource('kusioner', UserKusionerController::class, ['as' => 'user'])
+        Route::resource('kuesioner', UserKuesionerController::class, ['as' => 'user'])
             ->only(['index', 'store', 'create']);
 
         // Profile routes

@@ -53,8 +53,8 @@
 
     <main class="container text-center mt-3">
         <img src="{{ asset('images/High School-rafiki.png') }}" alt="Tracer Study Logo" class="img-fluid mb-4" style="max-width: 400px;">
-        <h1 class="display-5 fw-bold">Selamat Datang di Tracer Study</h1>
-        <p class="lead">Platform untuk melacak alumni dan perkembangan karier mereka.</p>
+        <h1 class="display-5 fw-bold">Selamat Datang di Tracer Study Poltektedc</h1>
+        <p class="lead">Platform pelacakan alumni dan perkembangan karier mereka.</p>
         <!-- Tambahkan konten utama di sini -->
     </main>
 

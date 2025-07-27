@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class user_kusioner extends Model
+class user_kuesioner extends Model
 {
-    /** @use HasFactory<\Database\Factories\UserKusionerFactory> */
+    /** @use HasFactory<\Database\Factories\UserKuesionerFactory> */
     use HasFactory;
 
     protected $fillable = [
@@ -16,9 +16,9 @@ class user_kusioner extends Model
         'status',
     ];
 
-    // di model user_kusioner.php
-    public function kusioner()
+    // di model user_kuesioner.php
+    public function kuesioner()
     {
-        return $this->belongsTo(Kusioner::class);
+        return $this->belongsTo(Kuesioner::class);
     }
 }
