@@ -27,9 +27,9 @@
                             <x-nav-link :href="route('admin.loker.index')" :active="request()->routeIs('admin.loker.index')">
                                 {{ __('Kelola Loker') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('admin.kuesioner.index')" :active="request()->routeIs('admin.kuesioner.index')">
+                            {{-- <x-nav-link :href="route('admin.kuesioner.index')" :active="request()->routeIs('admin.kuesioner.index')">
                                 {{ __('Kelola Kuesioner') }}
-                            </x-nav-link>
+                            </x-nav-link> --}}
                             <x-nav-link :href="route('admin.tracer.index')" :active="request()->routeIs('admin.tracer.index')">
                                 {{ __('Kelola Isi Tracer') }}
                             </x-nav-link>

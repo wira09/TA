@@ -11,10 +11,10 @@ class LokerController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $data['loker'] = \App\Models\lokers::latest()->paginate(10);
-        return view('admin.loker_index', $data);
-    }
+{
+    $data['lokers'] = \App\Models\loker::latest()->paginate(10);
+    return view('admin.loker_index', $data);
+}
 
     /**
      * Show the form for creating a new resource.
